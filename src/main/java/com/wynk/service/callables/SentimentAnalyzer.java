@@ -6,6 +6,7 @@ import java.util.concurrent.Callable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.wynk.enums.TEAM_STATUS;
 import com.wynk.model.TextAnalyzer;
 import com.wynk.service.TeamRequestServiceImpl;
 import com.wynk.util.WordSentiments;
@@ -36,6 +37,7 @@ public class SentimentAnalyzer implements Callable<String> {
 			analyzer.setCompletedTask("4/4");
 			analyzer.setEndTime(new Date());
 			analyzer.setSentiment(sentiment);
+			analyzer.setStatus(TEAM_STATUS.COMPLETED);
 		}
 		return sentiment;
 	}
